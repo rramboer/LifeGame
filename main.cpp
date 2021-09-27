@@ -24,12 +24,13 @@ int main() {
 			cout << "\nSize must be an integer. Try again:   ";
 		}
 		cin.clear();
-		cin.ignore(1000, '\n');
+		cin.ignore(10000, '\n');
 	}
-
 	format(SIZE_BOARD);
-
-	calculate(SIZE_BOARD);
+	int numIter = 5;
+	for (int i = 0; i < numIter; i++) {
+		calculate(SIZE_BOARD);
+	}
 
 	return 0;
 }
@@ -38,11 +39,9 @@ void calculate(int s) {
 	Generation current(s);
 	Generation nextGen = current;
 
-	for (int i = 0; i < 5; ++i) {
-		cout << nextGen << endl;
-		current = nextGen;
-		nextGen = current.nextGeneration();
-	}
+	cout << nextGen << endl;
+	current = nextGen;
+	nextGen = current.nextGeneration();
 }
 
 void format(int size) {
