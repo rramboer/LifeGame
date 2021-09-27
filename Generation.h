@@ -17,7 +17,7 @@ public:
 				int random_i = rand() % (SIZE); // random integer [ 0 , size - 1 ]
 				int random_j = rand() % (SIZE);
 				vector<int> random = { random_i, random_j };
-				add(random, cells);
+				cells.push_back(random);
 			}
 		}
 	}
@@ -46,7 +46,6 @@ public:
 					countLife = countNeighborLife(point);
 					if (countLife == 2 || countLife == 3) {
 						add(point, nextGen);
-						//nextGen.push_back(point);
 					}
 				}
 			}
@@ -106,7 +105,7 @@ private:
 
 	void add(vector<int>& coord, vector<vector<int>>& arr) { // adds to vector 
 		if (!(has(arr, coord))) {
-			if (coord[0] < SIZE - 2 && coord[1] < SIZE - 2) {
+			if (coord[0] < SIZE && coord[1] < SIZE) {
 				arr.push_back(coord);
 			}
 		}
