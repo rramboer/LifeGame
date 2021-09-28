@@ -11,7 +11,7 @@ class Generation {
 public:
 	Generation() : SIZE(5), numCells((int)pow(SIZE, 2)) { }
 
-	Generation(int size_in) : SIZE(size_in), numCells((int)pow(SIZE, 2)) { // FIXME: Not actually random
+	Generation(int size_in) : SIZE(size_in), numCells((int)pow(SIZE, 2)) { 
 		for (int i = 0; i < SIZE; ++i) {
 			for (int j = 0; j < SIZE; ++j) {
 				int random_i = rand() % (SIZE); // random integer [ 0 , size - 1 ]
@@ -95,7 +95,7 @@ private:
 		return lifeCount;
 	}
 
-	bool isAlive(int x, int y) const { // checks if a cell is alive
+	bool isAlive(int x, int y) const { // checks if a cell is alive and inside the bounds of the board
 		vector<int> point = { x, y };
 		if (x < SIZE && y < SIZE && find(cells.begin(), cells.end(), point) != cells.end()) {
 			return true;
