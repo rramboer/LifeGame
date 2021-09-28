@@ -71,7 +71,7 @@ private:
 	vector<vector<int>> cells;
 	vector<vector<int>> nextGen;
 
-	int countNeighborLife(vector<int>& cell) { // FIXME
+	int countNeighborLife(vector<int>& cell) {
 		int lifeCount = 0;
 
 		if (isAlive(cell[0], cell[1] - 1)) { // x, y - 1
@@ -95,15 +95,15 @@ private:
 		return lifeCount;
 	}
 
-	bool isAlive(int x, int y) const {
+	bool isAlive(int x, int y) const { // checks if a cell is alive
 		vector<int> point = { x, y };
-		if (find(cells.begin(), cells.end(), point) != cells.end()) {
+		if (x < SIZE && y < SIZE && find(cells.begin(), cells.end(), point) != cells.end()) {
 			return true;
 		}
 		return false;
 	}
 
-	void add(vector<int>& coord, vector<vector<int>>& arr) { // adds to vector 
+	void add(vector<int>& coord, vector<vector<int>>& arr) { // filters out cells that are beyond the SIZE of the vector
 		if (!(has(arr, coord))) {
 			if (coord[0] < SIZE && coord[1] < SIZE) {
 				arr.push_back(coord);
