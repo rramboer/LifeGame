@@ -30,7 +30,7 @@ public:
 
 	Generation nextGeneration() {
 		// empty cell gets life if 2-3 neighbors
-		// living cell dies if no neighbors or more than 4 neighbors
+		// living cell dies if no neighbors or more than 3 neighbors
 
 		for (int i = 0; i < SIZE; ++i) {
 			int numLife = countNeighborLife(cells[i]);
