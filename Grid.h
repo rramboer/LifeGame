@@ -3,6 +3,9 @@
 #include <string>
 using namespace std;
 
+/*
+	ROOM FOR SCALING
+*/
 class Grid {
 public:
 
